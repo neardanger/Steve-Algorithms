@@ -108,14 +108,15 @@ function diffArray(arr1, arr2) {
 diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
 
 //Take a random name from an array
-var array = ["Mason", "Jason", "Mack", "Harrison", "Blitzen"];
+const array = ["Mason", "Jason", "Mack", "Harrison", "Blitzen","Jackson","Nat","Jay"];
 
 function randomizer(arr) {
   var newArr = [];
 
-  var randomizer = function() {
-    return Math.floor(Math.random() * (arr.length - 0));
-  };
-  console.log(randomizer());
+  var randomizer = Math.floor(Math.random() * (arr.length));
+
+  return arr[randomizer]
 }
 randomizer(array);
+
+
