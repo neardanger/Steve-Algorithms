@@ -29,28 +29,33 @@ function solution(number) {
       found.push(i);
     }
   }
-  return found.reduce(function (a, b) { return a + b; });
+  return found.reduce(function(a, b) {
+    return a + b;
+  });
 }
-
-
 
 //UpperCase and LowerCase algorithm
 function stringTransformer(str) {
+  var regExp = /^[A-Z]/;
 
-  var regExp = /^[A-Z]/
-
-  return str.split(' ').reverse().join(' ').split(' ').join(' ').split('').map(function (el) {
-    if (regExp.test(el) == true) {
-      return el.toLowerCase()
-    } else {
-      return el.toUpperCase()
-    }
-  }).join('')
+  return str
+    .split(" ")
+    .reverse()
+    .join(" ")
+    .split(" ")
+    .join(" ")
+    .split("")
+    .map(function(el) {
+      if (regExp.test(el) == true) {
+        return el.toLowerCase();
+      } else {
+        return el.toUpperCase();
+      }
+    })
+    .join("");
 }
 
-stringTransformer("string One")
-
-
+stringTransformer("string One");
 
 function flipNumber(n) {
   //Code goes here!
@@ -58,7 +63,6 @@ function flipNumber(n) {
   var arr = [];
   var len = n.length;
   for (var i = 0; i < len; i++) {
-
     arr.push(temp.pop());
     temp = temp.reverse();
   }
@@ -75,36 +79,43 @@ function sumAll(arr) {
   for (var i = min; i <= max; i++) {
     arrAnswer.push(i);
   }
-  return arrAnswer.reduce(function (a, b) {
+  return arrAnswer.reduce(function(a, b) {
     return a + b;
   });
 }
 
 sumAll([1, 4]);
 
-
 //See if there are any different numbers in an array
 //.includes
 //if an index = -1 that means its not in the other array
-
 
 function diffArray(arr1, arr2) {
   var newArr = [];
   function firstArray(first, second) {
     for (var i = 0; i < first.length; i++) {
       if (second.indexOf(first[i]) === -1) {
-        newArr.push(first[i])
+        newArr.push(first[i]);
       }
     }
   }
   firstArray(arr1, arr2);
-  firstArray(arr2, arr1)
+  firstArray(arr2, arr1);
 
-  return newArr
+  return newArr;
 }
 
 diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
 
+//Take a random name from an array
+var array = ["Mason", "Jason", "Mack", "Harrison", "Blitzen"];
 
+function randomizer(arr) {
+  var newArr = [];
 
-
+  var randomizer = function() {
+    return Math.floor(Math.random() * (arr.length - 0));
+  };
+  console.log(randomizer());
+}
+randomizer(array);
