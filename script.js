@@ -108,19 +108,25 @@ function diffArray(arr1, arr2) {
 diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
 
 //Take a random name from an array
-const array = ["Mason", "Jason", "Mack", "Harrison", "Blitzen","Jackson","Nat","Jay"];
+const array = [
+  "Mason",
+  "Jason",
+  "Mack",
+  "Harrison",
+  "Blitzen",
+  "Jackson",
+  "Nat",
+  "Jay"
+];
 
 function randomizer(arr) {
   var newArr = [];
 
-  var randomizer = Math.floor(Math.random() * (arr.length));
+  var randomizer = Math.floor(Math.random() * arr.length);
 
-  return arr[randomizer]
+  return arr[randomizer];
 }
 randomizer(array);
-
-
-
 
 // switch statement
 function countArara(n) {
@@ -136,3 +142,46 @@ function countArara(n) {
       return "adak " + countArara(n - 2);
   }
 }
+
+//find roman numerals!
+function romanNumerals(num) {
+  var placeHolder = "";
+  var romanNumerals = [
+    "M",
+    "CM",
+    "D",
+    "CD",
+    "C",
+    "XC",
+    "L",
+    "XL",
+    "X",
+    "IX",
+    "V",
+    "IV",
+    "I"
+  ];
+  var vals = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+  for (var i = 0; i < vals.length; i++) {
+    while (vals[i] <= num) {
+      placeHolder += romanNumerals[i];
+      num -= vals[i];
+    }
+  }
+  return placeHolder;
+}
+
+romanNumerals(10);
+
+//Inefficient Fibonacci
+function fib(num) {
+  if (num === 0) {
+    return 0;
+  }
+  if (num === 1) {
+    return 1;
+  }
+
+  return fib(num - 1) + fib(num - 2);
+}
+fib(4);
