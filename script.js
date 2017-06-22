@@ -29,7 +29,7 @@ function solution(number) {
       found.push(i);
     }
   }
-  return found.reduce(function(a, b) {
+  return found.reduce(function (a, b) {
     return a + b;
   });
 }
@@ -45,7 +45,7 @@ function stringTransformer(str) {
     .split(" ")
     .join(" ")
     .split("")
-    .map(function(el) {
+    .map(function (el) {
       if (regExp.test(el) == true) {
         return el.toLowerCase();
       } else {
@@ -79,7 +79,7 @@ function sumAll(arr) {
   for (var i = min; i <= max; i++) {
     arrAnswer.push(i);
   }
-  return arrAnswer.reduce(function(a, b) {
+  return arrAnswer.reduce(function (a, b) {
     return a + b;
   });
 }
@@ -92,6 +92,7 @@ sumAll([1, 4]);
 
 function diffArray(arr1, arr2) {
   var newArr = [];
+
   function firstArray(first, second) {
     for (var i = 0; i < first.length; i++) {
       if (second.indexOf(first[i]) === -1) {
@@ -162,26 +163,60 @@ function romanNumerals(num) {
     "I"
   ];
   var vals = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
-  for (var i = 0; i < vals.length; i++) {
-    while (vals[i] <= num) {
-      placeHolder += romanNumerals[i];
-      num -= vals[i];
+  var placeHolder = ''
+  if (num <= 0) {
+    return false
+  } else {
+
+
+    for (var i = 0; i < vals.length; i++) {
+      while (vals[i] <= num) {
+        placeHolder += romanNumerals[i]
+        num -= vals[i]
+      }
     }
   }
-  return placeHolder;
+  return placeHolder
 }
 
 romanNumerals(10);
 
 //Inefficient Fibonacci
+//O(2^N)
 function fib(num) {
   if (num === 0) {
-    return 0;
+    return 0
+  } else if (num <= 1) {
+    return 1
+  } else {
+    return fib(num - 1) + fib(num - 2)
   }
-  if (num === 1) {
-    return 1;
-  }
-
-  return fib(num - 1) + fib(num - 2);
 }
-fib(4);
+fib(4)
+
+//memoized
+
+function fibonacci(num, memo) {
+  memo = memo || {};
+
+  if (memo[num]) return memo[num];
+  if (num <= 1) return 1;
+
+  return memo[num] = fibonacci(num - 1, memo) + fibonacci(num - 2, memo);
+}
+fibonacci(3,3)
+
+
+//searching in collection 
+function whatIsInAName(collection, source) {
+  sourceKey = Object.keys(source)
+  
+    return collection.filter(function(el){
+      return sourceKey.every(function(answer){
+        return el.hasOwnProperty(answer) && el[answer] === source[answer]
+      });
+  });
+}
+whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
+
+
