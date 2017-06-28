@@ -204,6 +204,7 @@ function fibonacci(num, memo) {
 
   return memo[num] = fibonacci(num - 1, memo) + fibonacci(num - 2, memo);
 }
+<<<<<<< HEAD
 fibonacci(3,3)
 
 
@@ -220,3 +221,73 @@ function whatIsInAName(collection, source) {
 whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
 
 
+=======
+fib(4);
+
+var register = {
+  total: 0,
+
+  add: function(itemCost) {
+    this.total += itemCost;
+    this.currentAmount = itemCost;
+  },
+  scan: function(itemName, itemQuantity) {
+    switch (itemName) {
+      case "eggs":
+        this.add(2.0 * itemQuantity);
+        break;
+      case "chocolate":
+        this.add(5.0 * itemQuantity);
+    }
+    return true;
+  },
+  voidItem: function() {
+    this.total = this.total - this.currentAmount;
+  }
+};
+register.scan("eggs", 1);
+
+function FirstFactorial(num) {
+  var result = 1;
+  for (var i = num; i >= 1; i--) {
+    result *= i;
+  }
+  return result;
+}
+FirstFactorial(4);
+// keep this function call here
+FirstFactorial(readline());
+
+function isPangram(string) {
+  string = string.toLowerCase();
+  return "abcdefghijklmnopqrstuvwxyz".split("").every(function(el) {
+    return string.indexOf(el) !== -1;
+  });
+}
+isPangram("testing");
+
+// function whatIsInAName(collection, source) {
+//   // What's in a name?
+//   var arr = [];
+//   var keys = Object.keys(source);
+
+//   console.log(keys);
+
+//   for (var i = 0; i < collection.length; i++) {}
+//   // Only change code below this line
+
+//   // Only change code above this line
+// }
+
+
+function whatIsInAName(collection,source){
+  var sourceKey = Object.keys(source);
+  return collection.filter(function(el){
+    return sourceKey.every(function(answer){
+      return el.hasOwnProperty(answer) && el[answer] === source[answer]
+    })
+  })
+
+}
+whatIsInAName([{first:"Romeo",last:"Montague"},{first:"Mercutio",last:null},{first:"Tybalt",last:"Capulet"}], {first:"Tybalt"})
+>>>>>>> added new problems
