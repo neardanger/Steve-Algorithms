@@ -204,7 +204,6 @@ function fibonacci(num, memo) {
 
   return memo[num] = fibonacci(num - 1, memo) + fibonacci(num - 2, memo);
 }
-<<<<<<< HEAD
 fibonacci(3,3)
 
 
@@ -221,7 +220,6 @@ function whatIsInAName(collection, source) {
 whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
 
 
-=======
 fib(4);
 
 var register = {
@@ -290,4 +288,3 @@ function whatIsInAName(collection,source){
 
 }
 whatIsInAName([{first:"Romeo",last:"Montague"},{first:"Mercutio",last:null},{first:"Tybalt",last:"Capulet"}], {first:"Tybalt"})
->>>>>>> added new problems
