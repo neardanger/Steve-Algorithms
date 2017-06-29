@@ -288,3 +288,28 @@ function whatIsInAName(collection,source){
 
 }
 whatIsInAName([{first:"Romeo",last:"Montague"},{first:"Mercutio",last:null},{first:"Tybalt",last:"Capulet"}], {first:"Tybalt"})
+
+
+var years = [1995,1996,1998,2001,2003,2005]
+function calcAge(array,fn){
+  var newArray = []
+  for(var i=0;i<array.length;i++){
+    newArray.push(fn(array[i]))
+  }
+  return newArray
+}
+
+function subtractYears(el){
+  return 2017 - el
+}
+
+function isOldEnough(limit,el){
+  return el >= limit
+}
+
+var ages = calcAge(years,subtractYears)
+
+var japanAge = calcAge(ages,isOldEnough.bind(this,18))
+
+
+
